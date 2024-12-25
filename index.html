@@ -43,6 +43,18 @@
         .hidden {
             display: none;
         }
+        .downloadable-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .download-link {
+            display: block;
+            margin: 10px 0;
+            color: #0078d7;
+            text-decoration: underline;
+        }
         footer {
             background-color: #0078d7;
             color: #fff;
@@ -80,6 +92,12 @@
         </section>
         <section id="about-section" class="hidden">
             <h2>MIND YOUR OWN BUSINESS</h2>
+            <div class="downloadable-images">
+                <img src="image1.jpg" alt="Downloadable Image 1">
+                <a href="image1.jpg" download class="download-link">Download Image 1</a>
+                <img src="image2.jpg" alt="Downloadable Image 2">
+                <a href="image2.jpg" download class="download-link">Download Image 2</a>
+            </div>
         </section>
     </div>
     <footer>
@@ -87,3 +105,4 @@
     </footer>
 </body>
 </html>
+
