@@ -14,20 +14,54 @@
         header {
             background-color: #0078d7;
             color: #fff;
-            padding: 15px 0;
+            padding: 15px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
         }
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #0078d7;
-            font-weight: bold;
+        .hamburger-menu {
+            position: absolute;
+            top: 15px;
+            left: 15px;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+        }
+        .hamburger-menu div {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+        }
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #0078d7;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .side-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .side-nav a:hover {
+            background-color: #555;
+        }
+        .side-nav .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 36px;
         }
         .container {
             padding: 20px;
@@ -59,7 +93,7 @@
             background-color: #0078d7;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 10px;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -67,25 +101,41 @@
         }
     </style>
     <script>
+        function openNav() {
+            document.getElementById('mySidenav').style.width = '250px';
+        }
+
+        function closeNav() {
+            document.getElementById('mySidenav').style.width = '0';
+        }
+
         function showAbout() {
             document.getElementById('home-section').classList.add('hidden');
             document.getElementById('about-section').classList.remove('hidden');
+            closeNav();
         }
 
         function showHome() {
             document.getElementById('home-section').classList.remove('hidden');
             document.getElementById('about-section').classList.add('hidden');
+            closeNav();
         }
     </script>
 </head>
 <body>
     <header>
+        <div class="hamburger-menu" onclick="openNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <h1>ALPHA WEBSITE</h1>
     </header>
-    <nav>
-        <a onclick="showHome()">Home</a>
-        <a onclick="showAbout()">About</a>
-    </nav>
+    <div id="mySidenav" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" onclick="showHome()">Home</a>
+        <a href="javascript:void(0)" onclick="showAbout()">About</a>
+    </div>
     <div class="container">
         <section id="home-section">
             <h2>HELLO AWESOME PEOPLE</h2>
@@ -105,4 +155,5 @@
     </footer>
 </body>
 </html>
+
 
