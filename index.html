@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALPHA WEBSITE</title>
+    <title>ALPHA DIGEST</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -123,6 +123,7 @@
             display: inline-block;
             width: 60px;
             height: 34px;
+            margin-left: 20px;
         }
         .toggle-switch input {
             opacity: 0;
@@ -157,6 +158,11 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+        /* Additional styles for home section */
+        .subtext {
+            font-size: 0.9em;
+            color: #555;
+        }
     </style>
     <script>
         function openNav() {
@@ -170,12 +176,14 @@
         function showAbout() {
             document.getElementById('home-section').classList.add('hidden');
             document.getElementById('about-section').classList.remove('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
             closeNav();
         }
 
         function showHome() {
             document.getElementById('home-section').classList.remove('hidden');
             document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
             closeNav();
         }
 
@@ -187,7 +195,10 @@
         }
 
         function showFeedback() {
-            alert("Feedback page is under construction.");
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.remove('hidden');
             closeNav();
         }
 
@@ -203,7 +214,7 @@
             <div></div>
             <div></div>
         </div>
-        <h1>ALPHA WEBSITE</h1>
+        <h1>ALPHA DIGEST</h1>
     </header>
     <div id="mySidenav" class="side-nav">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
@@ -215,15 +226,10 @@
     <div class="container">
         <section id="home-section">
             <h2>HELLO AWESOME PEOPLE</h2>
+            <p class="subtext">Hope you would like my website</p>
         </section>
         <section id="about-section" class="hidden">
-            <h2>MIND YOUR OWN BUSINESS</h2>
-            <div class="downloadable-images">
-                <img src="image1.jpg" alt="Downloadable Image 1">
-                <a href="image1.jpg" download class="download-link">Download Image 1</a>
-                <img src="image2.jpg" alt="Downloadable Image 2">
-                <a href="image2.jpg" download class="download-link">Download Image 2</a>
-            </div>
+            <h2>About</h2>
         </section>
         <section id="settings-section" class="hidden">
             <h2>Settings</h2>
@@ -234,6 +240,10 @@
                     <span class="slider"></span>
                 </label>
             </div>
+        </section>
+        <section id="feedback-section" class="hidden">
+            <h2>Feedback</h2>
+            <p>WHO ASKED ABOUT YOUR FEEDBACK? :)</p>
         </section>
     </div>
     <footer>
