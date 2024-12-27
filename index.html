@@ -163,27 +163,6 @@
             font-size: 0.9em;
             color: #555;
         }
-        .heading {
-            cursor: pointer;
-            color: #0078d7;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .heading:hover {
-            text-decoration: underline;
-        }
-        .article {
-            text-align: left;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
-        }
-        .dark-theme .article {
-            background-color: #2c2c2c;
-            color: #ffffff;
-        }
     </style>
     <script>
         function openNav() {
@@ -226,14 +205,6 @@
             closeNav();
         }
 
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.add('hidden');
-            });
-            document.getElementById(sectionId).classList.remove('hidden');
-        }
-
         function toggleDarkTheme() {
             document.body.classList.toggle('dark-theme');
         }
@@ -256,44 +227,26 @@
         <a href="javascript:void(0)" onclick="showFeedback()">Feedback</a>
     </div>
     <div class="container">
-        <div class="heading" onclick="showSection('sports-section')">SPORTS</div>
-        <div class="heading" onclick="showSection('tech-section')">TECH</div>
-        <div class="heading" onclick="showSection('politics-section')">POLITICS</div>
-
-        <section id="sports-section" class="section hidden">
-            <h2>SPORTS</h2>
-            <div class="article">
-                <h3>Article 1</h3>
-                <p>Content of Sports Article 1...</p>
-            </div>
-            <div class="article">
-                <h3>Article 2</h3>
-                <p>Content of Sports Article 2...</p>
+        <section id="home-section">
+            <h2>HELLO AWESOME PEOPLE</h2>
+            <p class="subtext">Hope you would like my website</p>
+        </section>
+        <section id="about-section" class="hidden">
+            <h2>About</h2>
+        </section>
+        <section id="settings-section" class="hidden">
+            <h2>Settings</h2>
+            <div style="display: flex; align-items: center; justify-content: flex-start;">
+                <label for="dark-theme-toggle" style="margin-right: 20px;">Dark Theme</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-theme-toggle" onclick="toggleDarkTheme()">
+                    <span class="slider"></span>
+                </label>
             </div>
         </section>
-
-        <section id="tech-section" class="section hidden">
-            <h2>TECH</h2>
-            <div class="article">
-                <h3>Article 1</h3>
-                <p>Content of Tech Article 1...</p>
-            </div>
-            <div class="article">
-                <h3>Article 2</h3>
-                <p>Content of Tech Article 2...</p>
-            </div>
-        </section>
-
-        <section id="politics-section" class="section hidden">
-            <h2>POLITICS</h2>
-            <div class="article">
-                <h3>Article 1</h3>
-                <p>Content of Politics Article 1...</p>
-            </div>
-            <div class="article">
-                <h3>Article 2</h3>
-                <p>Content of Politics Article 2...</p>
-            </div>
+        <section id="feedback-section" class="hidden">
+            <h2>Feedback</h2>
+            <p>WHO CARES ABOUT YOUR FEEDBACK?</p>
         </section>
     </div>
     <footer>
