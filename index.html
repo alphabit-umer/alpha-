@@ -65,10 +65,7 @@
             right: 15px;
             font-size: 36px;
         }
-        .icon-home {
-            font-size: 30px;
-        }
-        .icon-settings {
+        .icon-home, .icon-settings {
             font-size: 28px;
         }
         .container {
@@ -115,6 +112,10 @@
         .dark-theme header,
         .dark-theme footer {
             background-color: #1f1f1f;
+        }
+        .dark-theme .container {
+            background-color: #1e1e1e;
+            color: #ffffff;
         }
         /* Toggle switch styles */
         .toggle-switch {
@@ -206,8 +207,6 @@
 
         function toggleDarkTheme() {
             document.body.classList.toggle('dark-theme');
-            document.getElementById('settings-section').style.color = 'inherit';
-            document.getElementById('dark-theme-toggle').parentElement.style.color = 'inherit';
         }
     </script>
 </head>
