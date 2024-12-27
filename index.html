@@ -19,6 +19,55 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: relative;
         }
+        .hamburger-menu {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+        }
+        .hamburger-menu div {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+        }
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .side-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .side-nav a:hover {
+            background-color: #555;
+        }
+        .side-nav .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            font-size: 36px;
+        }
+        .icon-home, .icon-settings {
+            font-size: 28px;
+        }
         .container {
             padding: 20px;
             max-width: 800px;
@@ -33,6 +82,18 @@
         .hidden {
             display: none;
         }
+        .downloadable-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .download-link {
+            display: block;
+            margin: 10px 0;
+            color: #0078d7;
+            text-decoration: underline;
+        }
         footer {
             background-color: #0078d7;
             color: #fff;
@@ -42,6 +103,65 @@
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        /* Dark theme styles */
+        .dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .dark-theme header,
+        .dark-theme footer {
+            background-color: #1f1f1f;
+        }
+        .dark-theme .container {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        /* Toggle switch styles */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-left: 20px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0078d7;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        /* Additional styles for home section */
+        .subtext {
+            font-size: 0.9em;
+            color: #555;
         }
         .heading {
             cursor: pointer;
@@ -60,8 +180,52 @@
             margin-bottom: 10px;
             background-color: #f9f9f9;
         }
+        .dark-theme .article {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
     </style>
     <script>
+        function openNav() {
+            document.getElementById('mySidenav').style.width = '250px';
+        }
+
+        function closeNav() {
+            document.getElementById('mySidenav').style.width = '0';
+        }
+
+        function showAbout() {
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('about-section').classList.remove('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
+            closeNav();
+        }
+
+        function showHome() {
+            document.getElementById('home-section').classList.remove('hidden');
+            document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
+            closeNav();
+        }
+
+        function showSettings() {
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('settings-section').classList.remove('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
+            closeNav();
+        }
+
+        function showFeedback() {
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.remove('hidden');
+            closeNav();
+        }
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -69,12 +233,28 @@
             });
             document.getElementById(sectionId).classList.remove('hidden');
         }
+
+        function toggleDarkTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
     </script>
 </head>
 <body>
     <header>
+        <div class="hamburger-menu" onclick="openNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <h1>ALPHA DIGEST</h1>
     </header>
+    <div id="mySidenav" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" onclick="showHome()">Home<span class="icon-home">&#x1F3E0;</span></a>
+        <a href="javascript:void(0)" onclick="showSettings()">Settings<span class="icon-settings">&#9881;</span></a>
+        <a href="javascript:void(0)" onclick="showAbout()">About</a>
+        <a href="javascript:void(0)" onclick="showFeedback()">Feedback</a>
+    </div>
     <div class="container">
         <div class="heading" onclick="showSection('sports-section')">SPORTS</div>
         <div class="heading" onclick="showSection('tech-section')">TECH</div>
