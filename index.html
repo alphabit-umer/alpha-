@@ -52,6 +52,7 @@
             font-size: 22px;
             color: #fff;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             transition: 0.3s;
         }
@@ -66,11 +67,9 @@
         }
         .icon-home {
             font-size: 26px;
-            margin-right: 10px;
         }
         .icon-settings {
             font-size: 22px;
-            margin-right: 10px;
         }
         .container {
             padding: 20px;
@@ -177,6 +176,7 @@
             document.getElementById('home-section').classList.add('hidden');
             document.getElementById('about-section').classList.remove('hidden');
             document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
             closeNav();
         }
 
@@ -184,6 +184,7 @@
             document.getElementById('home-section').classList.remove('hidden');
             document.getElementById('about-section').classList.add('hidden');
             document.getElementById('settings-section').classList.add('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
             closeNav();
         }
 
@@ -191,6 +192,7 @@
             document.getElementById('home-section').classList.add('hidden');
             document.getElementById('about-section').classList.add('hidden');
             document.getElementById('settings-section').classList.remove('hidden');
+            document.getElementById('feedback-section').classList.add('hidden');
             closeNav();
         }
 
@@ -218,8 +220,8 @@
     </header>
     <div id="mySidenav" class="side-nav">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <a href="javascript:void(0)" onclick="showHome()"><span class="icon-home">&#x1F3E0;</span>Home</a>
-        <a href="javascript:void(0)" onclick="showSettings()"><span class="icon-settings">&#9881;</span>Settings</a>
+        <a href="javascript:void(0)" onclick="showHome()">Home<span class="icon-home">&#x1F3E0;</span></a>
+        <a href="javascript:void(0)" onclick="showSettings()">Settings<span class="icon-settings">&#9881;</span></a>
         <a href="javascript:void(0)" onclick="showAbout()">About</a>
         <a href="javascript:void(0)" onclick="showFeedback()">Feedback</a>
     </div>
@@ -243,11 +245,8 @@
         </section>
         <section id="feedback-section" class="hidden">
             <h2>Feedback</h2>
-            <p>WHO ASKED ABOUT YOUR FEEDBACK? :)</p>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 My Awesome Website</p>
-    </footer>
-</body>
-</html>
+    </footer
