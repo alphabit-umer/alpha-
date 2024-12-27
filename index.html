@@ -66,10 +66,10 @@
             font-size: 36px;
         }
         .icon-home {
-            font-size: 26px;
+            font-size: 30px;
         }
         .icon-settings {
-            font-size: 22px;
+            font-size: 28px;
         }
         .container {
             padding: 20px;
@@ -206,6 +206,8 @@
 
         function toggleDarkTheme() {
             document.body.classList.toggle('dark-theme');
+            document.getElementById('settings-section').style.color = 'inherit';
+            document.getElementById('dark-theme-toggle').parentElement.style.color = 'inherit';
         }
     </script>
 </head>
@@ -235,8 +237,8 @@
         </section>
         <section id="settings-section" class="hidden">
             <h2>Settings</h2>
-            <div>
-                <label for="dark-theme-toggle">Dark Theme</label>
+            <div style="display: flex; align-items: center; justify-content: flex-start;">
+                <label for="dark-theme-toggle" style="margin-right: 20px;">Dark Theme</label>
                 <label class="toggle-switch">
                     <input type="checkbox" id="dark-theme-toggle" onclick="toggleDarkTheme()">
                     <span class="slider"></span>
@@ -245,8 +247,11 @@
         </section>
         <section id="feedback-section" class="hidden">
             <h2>Feedback</h2>
+            <p>WHO CARES ABOUT YOUR FEEDBACK?</p>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 My Awesome Website</p>
-    </footer
+    </footer>
+</body>
+</html>
